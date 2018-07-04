@@ -1,6 +1,7 @@
 package com.mrn;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
@@ -30,5 +31,8 @@ public class App {
         Student student2 = (Student) applicationContext.getBean(studentBean);
         //student2.setStudentName("Maria");
         System.out.println(student2.getStudentName());
+
+        // close the application context
+        ((ConfigurableApplicationContext)  applicationContext).close();
     }
 }

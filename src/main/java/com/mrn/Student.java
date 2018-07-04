@@ -11,4 +11,11 @@ public class Student {
         studentName = name;
     }
 
+    public void studentInit() {
+        System.out.println("Student init method called here...");
+    }
+
+    public void studentDestroy() {
+        System.out.println("Student destroy method is called...");
+    }
 }

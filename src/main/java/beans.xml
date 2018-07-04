@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-        <!--Configuration bean-->
-        <!--<bean id="student_bean" class="com.mrn.Student" scope="singleton">-->
-    <bean id="student_bean" class="com.mrn.Student" scope="prototype">
-            <!--property correspond with the JavaBean setter method exposed by the bean class
-                 Spring supports primitives, references to other
-                 beans in the same or related factories, lists, maps and properties.
-            -->
-            <!--<property name="studentName" value="Joe Smith"/>-->
-        </bean>
+    <!--Configuration bean-->
+    <!--<bean id="student_bean" class="com.mrn.Student" scope="singleton">-->
+    <!--If the scope is prototype then the destroy-method will not be called, the scope needs to be singleton-->
+    <bean id="student_bean" class="com.mrn.Student" scope="singleton" init-method="studentInit"
+          destroy-method="studentDestroy">
+        <!--property correspond with the JavaBean setter method exposed by the bean class
+             Spring supports primitives, references to other
+             beans in the same or related factories, lists, maps and properties.
+        -->
+        <!--<property name="studentName" value="Joe Smith"/>-->
+    </bean>
 
 </beans>
