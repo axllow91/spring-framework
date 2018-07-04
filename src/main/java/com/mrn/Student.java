@@ -1,7 +1,14 @@
 package com.mrn;
 
 public class Student {
-    public void saySomething() {
-        System.out.println("Learning Spring Framework!");
+    private String studentName;
+
+    public String getStudentName() {
+        return studentName;
     }
+
+    public void setStudentName(String name) {
+        studentName = name;
+    }
+
 }

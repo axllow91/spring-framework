@@ -4,6 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
         <!--Configuration bean-->
-        <bean id="student_bean" class="com.mrn.Student"/>
+        <!--<bean id="student_bean" class="com.mrn.Student" scope="singleton">-->
+    <bean id="student_bean" class="com.mrn.Student" scope="prototype">
+            <!--property correspond with the JavaBean setter method exposed by the bean class
+                 Spring supports primitives, references to other
+                 beans in the same or related factories, lists, maps and properties.
+            -->
+            <!--<property name="studentName" value="Joe Smith"/>-->
+        </bean>
 
 </beans>
