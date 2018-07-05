@@ -3,16 +3,23 @@
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--Configuration bean-->
-    <!--<bean id="student_bean" class="com.mrn.Student" scope="singleton">-->
-    <!--If the scope is prototype then the destroy-method will not be called, the scope needs to be singleton-->
-    <bean id="student_bean" class="com.mrn.Student" scope="singleton" init-method="studentInit"
-          destroy-method="studentDestroy">
-        <!--property correspond with the JavaBean setter method exposed by the bean class
-             Spring supports primitives, references to other
-             beans in the same or related factories, lists, maps and properties.
+    <bean id="student_bean" class="com.mrn.Student" scope="prototype">
+        <!--Description : Bean definitions can specify zero or more constructor arguments.
+        This is an alternative to "autowire constructor".
+        Arguments correspond to either a specific index of the constructor argument list or are supposed to be matched generically by type.
+        Note: A single generic argument value will just be used once, rather than potentially matched multiple times (as of Spring 1.1)
         -->
-        <!--<property name="studentName" value="Joe Smith"/>-->
+        <!--Dependency with the help of constructor // it can be done with the setter method too!-->
+        <!--Injected the dependency inside the student constructor-->
+        <!--Now a days we use annotations to inject some properties-->
+        <constructor-arg ref="address_bean"/>
+    </bean>
+
+    <bean id="address_bean" class="com.mrn.Address" scope="prototype">
+        <!--Injected address variable with information
+            Basically we instantiated address variable
+        -->
+        <property name="address" value="Some address"/>
     </bean>
 
 </beans>

@@ -1,21 +1,22 @@
 package com.mrn;
 
 public class Student {
-    private String studentName;
 
-    public String getStudentName() {
-        return studentName;
+    private Address address;
+
+    public Student(Address address) {
+        this.address = address;
     }
 
-    public void setStudentName(String name) {
-        studentName = name;
+    public Address getAddress() {
+        return address;
     }
 
-    public void studentInit() {
-        System.out.println("Student init method called here...");
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
-    public void studentDestroy() {
-        System.out.println("Student destroy method is called...");
+    public void showInfo() {
+        System.out.println("Student address is: " + address.getAddress());
     }
 }
